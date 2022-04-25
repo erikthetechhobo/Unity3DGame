@@ -2,9 +2,9 @@
 
 This is a template for a Unity3D html build game with PWA capabilities
 
-Viewable [here](https://sveltekit-singlepage-pwa.herokuapp.com/)
+Viewable [here](https://timely-daffodil-bef2ab.netlify.app/)
 
-Builds as a node app in /build
+Builds as a Netlify app. 
 
 ## Features
 
