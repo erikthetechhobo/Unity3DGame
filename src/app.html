@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		
+		<title>Svelte SPPWA</title>
+
+		<!-- all hrefs lead to /static folder-->
+		<link rel="manifest" href="/manifest.json">
+		<meta name="description" content="Sveltekit SPPWA starter template">
+
+		<!-- 
+			this is the background color of the splash screen when PWA is launched
+				/src/static/manifest.json
+			same color for any browser themes for continuity -- only works with android/chrome -- no ios support
+		-->
+		<meta name="theme-color" content="#8D3C62">
+
+		<meta name="mobile-web-app-capable" content="yes">
+
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-title" content="Svelte SPPWA">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="apple-touch-startup-image" href="/icon-512x512.png">
+		<meta name="viewport" content="viewport-fit=cover, initial-scale=1">
+		<link rel="apple-touch-icon" sizes="512x512" href="/icons/icon-512x512.png">
+
+		<link rel="icon" href="/icons/icon-32x32.png">
+		<link rel="stylesheet" href="/css/colors.css">
+		<link rel="stylesheet" href="/css/fonts.css">
+		<link rel="stylesheet" href="/css/svelteSPPWA.css">
+		
+		%svelte.head%
+	</head>
+	<body>
+		<div id="svelte">%svelte.body%</div>
+	</body>
+</html>

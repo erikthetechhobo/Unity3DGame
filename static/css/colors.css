@@ -1,0 +1,40 @@
+:root {
+    --banner-bg-color: #8D3C62;
+    --banner-button-color: #B5425D;
+    --banner-button-active: #8171a0;
+    --banner-accent:#860043;
+    --banner-text: #FFFFFF;
+
+    --page-bg-color: #FFFFFF;
+    --page-text: #000000;
+
+    --alert-color: #6faa69;
+}
+/*
+    Sets all pages sent to the <slot/> in src/routes/__layout.svelte back to default colors
+*/
+body {
+    background-color: var(--page-bg-color);
+    color: var(--page-text);
+}
+#InstallMessage {
+    background-color: var(--alert-color);
+}
+#InstallMessage button {
+    background-color: var(--page-text);
+    color: var(--page-bg-color);
+    margin-bottom: 10px;
+}
+#NavBar, footer {
+    background-color: var(--banner-bg-color);
+    color: var(--banner-text);
+}
+#NavBar a, button{
+    color: var(--banner-text);
+}
+#NavBar button {
+    background-color: var(--banner-button-color);
+}
+#NavBar #SideMenu {
+    background-color: var(--banner-accent);
+}

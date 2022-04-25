@@ -1,0 +1,14 @@
+/*
+    makes the svelte app take up the entire browser window
+*/
+html, body {
+    position: fixed;
+    overflow: hidden;
+    margin: 0;
+}
+#svelte {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+}
