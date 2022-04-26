@@ -52,11 +52,11 @@
 {#if $isAuthenticated}
     <div id="UnityContainer">
         <canvas id="UnityCanvas" />
-        <button id="QuitButton" on:click={logout}>Quit Game</button>
+        <button id="QuitButton" on:click={logout}>Log Out</button>
         <script on:load={loadGame} src="/Build/Build.loader.js" id="UnityLoaderScript"></script>
     </div>
 {:else}
-    <button id="StartButton" on:click={login}>Start Unity</button>
+    <button id="StartButton" on:click={login}>Log In</button>
 {/if}
 
 <style>

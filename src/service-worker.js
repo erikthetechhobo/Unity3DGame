@@ -46,7 +46,7 @@ async function fetchAndCache(request) {
 	} catch (err) {
 		const response = await cache.match(request);
 		if (response) return response;
-
+		console.log(err);
 		throw err;
 	}
 }
