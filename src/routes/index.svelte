@@ -1,6 +1,11 @@
 <script>
     import {onMount} from 'svelte';
 
+    import auth from '$lib/services/auth';
+    import { isAuthenticated, user } from '$lib/stores/auth';
+
+    let auth0Client;
+
     function hideStartButton() {
         return new Promise(resolve => {
             var startButton = document.getElementById('StartButton');
@@ -24,19 +29,35 @@
                     // devicePixelRatio: 1, // Uncomment this to override low DPI rendering on high DPI displays.
                 }
             );
-            resolve(hideStartButton(), console.log('game started'));
+            resolve(console.log('game started'));
         })
     }
+
+    function login() {
+        auth.loginWithPopup(auth0Client);
+        loadGame();
+    }
+    function logout() {
+        auth.logout(auth0Client);
+    }
+
     onMount(async () => {
-        await loadGame();
+        //Auth
+        auth0Client = await auth.createClient();
+        isAuthenticated.set(await auth0Client.isAuthenticated());
+        user.set(await auth0Client.getUser());
     });
 </script>
 
-<div id="UnityContainer">
-    <canvas id="UnityCanvas" />
-    <button id="StartButton" on:click={loadGame}>Start Unity</button>
-    <script src="/Build/Build.loader.js" id="UnityLoaderScript"></script>
-</div>
+{#if $isAuthenticated}
+    <div id="UnityContainer">
+        <canvas id="UnityCanvas" />
+        <button id="QuitButton" on:click={logout}>Quit Game</button>
+        <script on:load={loadGame} src="/Build/Build.loader.js" id="UnityLoaderScript"></script>
+    </div>
+{:else}
+    <button id="StartButton" on:click={login}>Start Unity</button>
+{/if}
 
 <style>
     #UnityCanvas {
@@ -53,6 +74,13 @@
         position: absolute;
         top: calc(50% - 11px);
         left: calc(50% - 37px);
+        background-color:black;
+    }
+    #QuitButton {
+        display: block;
+        position: absolute;
+        top: 0;
+        right: 0;
         background-color:black;
     }
 </style>
