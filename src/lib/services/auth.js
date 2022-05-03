@@ -14,7 +14,7 @@ async function createClient() {
 async function login(client, options) {
     popupOpen.set(true);
     try {
-        await client.loginWithRedirect({redirect_uri: 'https://techmmo.netlify.app/'});
+        await client.loginWithPopup(options);
 
         user.set(await client.getUser());
         isAuthenticated.set(true);
