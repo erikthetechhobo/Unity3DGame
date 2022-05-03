@@ -16,8 +16,10 @@ async function login(client, options) {
     try {
         await client.loginWithPopup(options);
         await user.set(await client.getUser(), isAuthenticated.set(true));
+
+        //console log the user
+        console.log(user.get());
     } catch (e) {
-        // eslint-disable-next-line
         console.error(e);
     } finally {
         popupOpen.set(false);
