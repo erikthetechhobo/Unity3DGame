@@ -18,7 +18,7 @@ async function login(client, options) {
         await user.set(await client.getUser(), isAuthenticated.set(true));
 
         //console log the user
-        console.log(user.get());
+        console.log(user);
     } catch (e) {
         console.error(e);
     } finally {
