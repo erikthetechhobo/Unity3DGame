@@ -34,7 +34,7 @@
     }
 
     function login() {
-        auth.loginWithPopup(auth0Client);
+        auth.login(auth0Client);
         loadGame();
     }
     function logout() {

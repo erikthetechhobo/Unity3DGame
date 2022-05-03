@@ -11,10 +11,10 @@ async function createClient() {
     return auth0Client;
 }
 
-async function loginWithPopup(client, options) {
+async function login(client, options) {
     popupOpen.set(true);
     try {
-        await client.loginWithPopup(options);
+        await client.loginWithRedirect(options);
 
         user.set(await client.getUser());
         isAuthenticated.set(true);
@@ -32,7 +32,7 @@ function logout(client) {
 
 const auth = {
     createClient,
-    loginWithPopup,
+    login,
     logout
 };
 
