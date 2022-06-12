@@ -2,8 +2,6 @@
 
 This is a template for a Unity3D html build game with PWA capabilities
 
-Viewable [here](https://timely-daffodil-bef2ab.netlify.app/)
-
 Builds as a Netlify app.
 
 ## Features
